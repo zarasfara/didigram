@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-use App\Models\Product;
-
-class HomeController extends Controller
+class IndexController extends Controller
 {
     public  function index() {
 
         $product = Product::first();
 
-        return view('pages.index',['product'=>$product]);
+        return view('pages.index',compact('product'));
 
     }
 
