@@ -19,6 +19,9 @@ Route::get('/',[IndexController::class, 'index'])->name('home');
 
 Route::get('/about',[IndexController::class, 'about'])->name('about');
 
+Route::get('/blog/{id}',[IndexController::class, 'news'])->name('news');
+
+Route::get('/blog',[IndexController::class, 'blog'])->name('blog');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

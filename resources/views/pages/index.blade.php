@@ -8,16 +8,16 @@
                 <div class="row align-items-center h-100">
                     <div class="col-lg-6 py-3 wow fadeInUp">
 {{--                        <h1 class="mb-4">Great Companies are built on great Products</h1>--}}
-                        <h1 class="mb-4">{{$product->name}}</h1>
+                        <h1 class="mb-4">{{$homeTitle->heading}}</h1>
                         <p class="text-lg mb-5">Ignite the most powerfull growth engine you have ever built for your company</p>
 
-                        <a href="#" class="btn btn-outline border text-secondary">{{$product->price}}</a>
+                        <a href="#" class="btn btn-outline border text-secondary">{{$homeTitle->paragraph}}</a>
                         <a href="#" class="btn btn-primary btn-split ml-2">Watch Video <div class="fab"><span class="mai-play"></span></div></a>
                     </div>
                             {{--{{$product->first()}}--}}
                     <div class="col-lg-6 py-3 wow zoomIn">
                         <div class="img-place">
-                            <img src="{{asset('storage/')}}/{{$product->image}}" alt="">
+                            <img src="{{asset('storage/')}}/{{$homeTitle->image}}" alt="">
                         </div>
                     </div>
                 </div>

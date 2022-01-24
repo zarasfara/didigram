@@ -17,6 +17,9 @@ class CreateHomeTitlesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('heading');
+            $table->string('image');
+            $table->string('paragraph');
+            $table->string('text_link');
         });
     }
 

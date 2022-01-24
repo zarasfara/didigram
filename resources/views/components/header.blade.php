@@ -19,7 +19,7 @@
                         <a href="services.html" class="nav-link">Слуги</a>
                     </li>
                     <li class="nav-item">
-                        <a href="blog.html" class="nav-link">Новости</a>
+                        <a href="{{route('blog')}}" class="nav-link">Новости</a>
                     </li>
                     <li class="nav-item">
                         <a href="contact.html" class="nav-link">Контакты</a>
