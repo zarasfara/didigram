@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\HomeTitle;
@@ -17,15 +18,20 @@ class IndexController extends Controller
 
     }
 
-    public function about() {
-        return view('pages.about');
+    public function about($slug) {
+        return view('pages.about',compact('slug'));
     }
 
     public function blog() {
-        return view('pages.blog');
+
+        $posts = Post::simplePaginate(1);
+        return view('pages.blog',compact('posts'));
     }
 
-    public function news($id) {
-        return view('pages.blog-single',compact('id'));
+    public function news($slug) {
+
+        $article = Post::where('slug', [$slug])->first();
+
+        return view('pages.blog-single',compact('slug','article'));
     }
 }

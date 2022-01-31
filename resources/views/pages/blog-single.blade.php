@@ -17,14 +17,14 @@
             <div class="blog-single-wrap">
               <div class="header">
                 <div class="post-thumb">
-                  <img src="../assets/img/blog/blog-1.jpg" alt="">
+                  <img src="{{asset('/storage')}}/{{$article->background}}" alt="">
                 </div>
                 <div class="meta-header">
                   <div class="post-author">
                     <div class="avatar">
-                      <img src="../assets/img/person/person_1.jpg" alt="">
+                      <img src="{{asset('img/person/person_1.jpg')}}" alt="">
                     </div>
-                    by <a href="#">Stephen Doe</a>
+                    by <a href="#">{{$article->name}}</a>
                   </div>
 
                   <div class="post-sharer">
@@ -35,19 +35,19 @@
                   </div>
                 </div>
               </div>
-              <h1 class="post-title">{{$id}}</h1>
+              <h1 class="post-title">{{$article->name}}</h1>
               <div class="post-meta">
                 <div class="post-date">
                   <span class="icon">
                     <span class="mai-time-outline"></span>
-                  </span> <a href="#">March 10, 2020</a>
+                  </span> <a href="#">{{$article->created_at}}</a>
                 </div>
                 <div class="post-comment-count ml-2">
                 </div>
               </div>
               <div class="post-content">
-                <blockquote class="quote">“I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.”
-                <span class="author">― Marilyn Monroe</span></blockquote>
+                <blockquote class="quote">{{$article->paragraph}}
+                <span class="author">― {{$article->name}}</span></blockquote>
               </div>
             </div>
 
