@@ -304,17 +304,22 @@
                         <h2 class="title-section">Drop Us a Line</h2>
                         <div class="divider"></div>
 
-                        <form action="#">
+                        <form action="{{route('review')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="py-2">
-                                <input type="text" class="form-control" placeholder="Full name">
+                                <input name="name" required type="text" class="form-control" placeholder="Полное имя">
                             </div>
                             <div class="py-2">
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input name="email" required type="text" class="form-control" placeholder="Почта">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Картинка</label>
+                                <input name="file" required class="form-control" type="file" id="formFile">
                             </div>
                             <div class="py-2">
-                                <textarea rows="6" class="form-control" placeholder="Enter message"></textarea>
+                                <textarea name="message" required rows="6" class="form-control" placeholder="Введите сообщение"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary rounded-pill mt-4">Send Message</button>
+                            <button type="submit" class="btn btn-primary rounded-pill mt-4">Отправить</button>
                         </form>
                     </div>
                 </div>

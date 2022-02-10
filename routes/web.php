@@ -23,6 +23,8 @@ Route::get('/blog/{slug}',[IndexController::class, 'news'])->name('article');
 
 Route::get('/blog',[IndexController::class, 'blog'])->name('blog');
 
+Route::post('/review',[IndexController::class,'reviewUpload'])->name('review');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
