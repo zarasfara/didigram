@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeBanner;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Review;
@@ -16,8 +17,9 @@ class IndexController extends Controller
 
         $homeTitle = HomeTitle::first();
 
+        $homeBanner = HomeBanner::where('status', '=', 'show')->get();
 
-        return view('pages.index', compact('homeTitle'));
+        return view('pages.index', compact('homeTitle', 'homeBanner'));
 
     }
 
@@ -63,7 +65,6 @@ class IndexController extends Controller
         Review::create($params);
 
        return redirect()->back();
-
 
     }
 }
