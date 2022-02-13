@@ -294,7 +294,7 @@
                         <h2 class="title-section">Drop Us a Line</h2>
                         <div class="divider"></div>
 
-                        <form action="{{route('review')}}" method="post" enctype="multipart/form-data">
+                        <form id="review" action="{{route('review')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="py-2">
                                 <input name="name" required type="text" class="form-control" placeholder="Полное имя">

@@ -33,7 +33,6 @@
           <div class="col-12 mt-5">
             <nav aria-label="Page Navigation">
               <ul class="pagination justify-content-center">
-                  {{ $posts->links() }}
 
               </ul>
             </nav>

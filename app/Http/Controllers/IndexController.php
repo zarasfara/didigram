@@ -23,15 +23,15 @@ class IndexController extends Controller
 
     }
 
-    public function about($slug)
+    public function about()
     {
-        return view('pages.about', compact('slug'));
+        return view('pages.about');
     }
 
     public function blog()
     {
 
-        $posts = Post::simplePaginate(1);
+        $posts = Post::all();
         return view('pages.blog', compact('posts'));
     }
 
