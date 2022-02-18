@@ -56,15 +56,11 @@ class IndexController extends Controller
            'file' => 'required|file|image|mimes:jpg,jpeg,png,bmp|max:2000'
         ]);
 
-        $path = $request->file('file')->store('reviews');
+        $path = $request->file('file')->store('/reviews', 'public');
 
         $params = $request->all();
 
         $params['file'] = $path;
-
         Review::create($params);
-
-       return redirect()->back();
-
     }
 }

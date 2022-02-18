@@ -11,7 +11,7 @@
                         <p class="text-lg mb-5">Ignite the most powerfull growth engine you have ever built for your
                             company</p>
 
-                        <a href="#" class="btn btn-outline border text-secondary">{{$homeTitle->paragraph}}</a>
+                         <a href="#" class="btn btn-outline border text-secondary">{!! $homeTitle->paragraph !!}</a>
                         <a href="#" class="btn btn-primary btn-split ml-2">Watch Video
                             <div class="fab"><span class="mai-play"></span></div>
                         </a>
