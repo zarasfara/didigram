@@ -162,6 +162,7 @@ $(document).ready(function (e) {
             contentType: false, // нужно указать тип контента false для картинки(файла)
             processData: false, // для передачи картинки(файла) нужно false
             success:function(data){ // в случае успешного завершения
+                alert('Успешно отправлено!')
                 console.log("Завершилось успешно"); // выведем в консоли успех
                 $("#review").find("input[type=text], textarea,input[type=file]").val("");
                 // Очищаем поля

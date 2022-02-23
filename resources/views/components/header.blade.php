@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a href="contact.html" class="nav-link">Контакты</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{$header->item_link}}" class="nav-link">{{$header->item_name}}</a>
+                    </li>
                 </ul>
 
             </div>
