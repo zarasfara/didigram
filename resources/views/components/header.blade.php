@@ -16,13 +16,7 @@
                         <a href="{{route('about')}}" class="nav-link">О нас</a>
                     </li>
                     <li class="nav-item">
-                        <a href="services.html" class="nav-link">Слуги</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{route('blog')}}" class="nav-link">Новости</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Контакты</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{$header->item_link}}" class="nav-link">{{$header->item_name}}</a>

@@ -1,15 +1,17 @@
 @extends('layout.layout')
+
+@section('ceo_name', $article->seo_name)
+
 @section('title','Конкретная новость')
+
 @section('content')
   <main>
     <div class="page-section pt-5">
       <div class="container">
         <nav aria-label="Breadcrumb">
-          <ul class="breadcrumb p-0 mb-0 bg-transparent">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-            <li class="breadcrumb-item active">Second divided from form fish beastr</li>
-          </ul>
+            <div class="custom-class">
+                {{Breadcrumbs::render('article',$article)}}
+            </div>
         </nav>
 
         <div class="row">
@@ -35,12 +37,13 @@
                   </div>
                 </div>
               </div>
+
               <h1 class="post-title">{{$article->name}}</h1>
               <div class="post-meta">
                 <div class="post-date">
                   <span class="icon">
                     <span class="mai-time-outline"></span>
-                  </span> <a href="#">{{$article->created_at}}</a>
+                  </span> <a href="#">{{$date->translatedFormat('F')}} {{$date->day}}, {{$date->year}} {{$date->format('H:i')}}</a>
                 </div>
                 <div class="post-comment-count ml-2">
                 </div>

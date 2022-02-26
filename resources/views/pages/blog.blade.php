@@ -3,7 +3,22 @@
 @section('title', 'блог')
 
 @section('content')
+    <div class="custom-class container">
+        {{Breadcrumbs::render()}}
+    </div>
   <main>
+      <div class="container">
+          <form action="" method="get">
+              @csrf
+              <div class="mb-3">
+                  <label for="searchInput" class="form-label">search</label>
+                  <input name="seatch" type="search" class="form-control" id="searchInput" aria-describedby="emailHelp">
+              </div>
+              <div>
+                  Кол-во записей
+              </div>
+          </form>
+      </div>
     <div class="page-section">
       <div class="container">
         <div class="row">
@@ -33,7 +48,6 @@
           <div class="col-12 mt-5">
             <nav aria-label="Page Navigation">
               <ul class="pagination justify-content-center">
-
               </ul>
             </nav>
           </div>

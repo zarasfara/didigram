@@ -148,6 +148,7 @@ return [
         'mobile'                => 'Моб. номер',
         'month'                 => 'Месяц',
         'name'                  => 'Имя',
+        'message'               => 'Сообщение',
         'password'              => 'Пароль',
         'password_confirmation' => 'Подтверждение пароля',
         'phone'                 => 'Телефон',

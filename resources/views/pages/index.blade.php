@@ -1,8 +1,12 @@
 @extends('layout.layout')
-
+@section('title', 'Главная')
 @section('content')
+    <div class="container">
+        <div class="custom-class">
+            {{Breadcrumbs::render()}}
+        </div>
+    </div>
     <main>
-
         <div class="page-banner home-banner">
             <div class="container h-100">
                 <div class="row align-items-center h-100">
@@ -16,7 +20,6 @@
                             <div class="fab"><span class="mai-play"></span></div>
                         </a>
                     </div>
-                    {{--{{$product->first()}}--}}
                     <div class="col-lg-6 py-3 wow zoomIn">
                         <div class="img-place">
                             <img src="{{asset('storage/')}}/{{$homeTitle->image}}" alt="">
@@ -36,7 +39,7 @@
                                 </div>
                                 <div>
                                     <h5>{{$item->heading}}</h5>
-                                    <p>{{$item->paragraph}}</p>
+                                    <p>{!!$item->paragraph!!}</p>
                                 </div>
                             </div>
                         </div>
@@ -297,18 +300,21 @@
                         <form id="review" action="{{route('review')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="py-2">
-                                <input name="name" required type="text" class="form-control" placeholder="Полное имя">
+                                <input name="name" type="text" class="form-control" placeholder="Полное имя">
                             </div>
                             <div class="py-2">
-                                <input name="email" required type="text" class="form-control" placeholder="Почта">
+                                <input name="email" type="text" class="form-control" placeholder="Почта">
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Картинка</label>
                                 <input name="file" required class="form-control" type="file" id="formFile">
                             </div>
                             <div class="py-2">
-                                <textarea name="message" required rows="6" class="form-control"
+                                <textarea name="message" rows="6" class="form-control"
                                           placeholder="Введите сообщение"></textarea>
+                            </div>
+                            <div id="result">
+
                             </div>
                             <button type="submit" class="btn btn-primary rounded-pill mt-4">Отправить</button>
                         </form>

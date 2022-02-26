@@ -152,7 +152,6 @@ $(document).ready(function (e) {
         e.preventDefault(); // делаем отмену действия браузера и формируем ajax
         let formData = new FormData($('#review')[0]);
         // данные с формы завернем в переменную для ajax
-
         $.ajax({
             type:'POST', // тип запроса
             url: $(this).attr('action'), // куда будем отправлять, можно явно указать
@@ -162,14 +161,27 @@ $(document).ready(function (e) {
             contentType: false, // нужно указать тип контента false для картинки(файла)
             processData: false, // для передачи картинки(файла) нужно false
             success:function(data){ // в случае успешного завершения
-                alert('Успешно отправлено!')
-                console.log("Завершилось успешно"); // выведем в консоли успех
-                $("#review").find("input[type=text], textarea,input[type=file]").val("");
                 // Очищаем поля
+                $("#review").find("input[type=text], textarea,input[type=file]").val("");
+
+                $('#result').html(`<div class="alert alert-success" role="alert">Форма успешно отправлена</div>`);
+
+                const down = () => {
+
+                    $("#result").animate({
+                            height: "0px", // высоту к нулю
+                        }, 600, function() {
+                            $(this).remove(); // удаляем из DOM (если требуется, если же нет, то "закомментируйте" эту строку)
+                        }
+                    );
+                }
+                setInterval(down,4000)
+
             },
-            error: function(data){ // в случае провала
-                console.log("Завершилось с ошибкой"); // сообщение об ошибке
-                console.log(data); // и данные по ошибке в том числе
+            error: (err) =>{ // в случае провала
+                const message = Object.values(err.responseJSON.errors).join('<br/>')
+
+                $('#result').html(`<div class="alert alert-danger" role="alert">${message}</div>`).fadeIn();
             }
         });
     }));

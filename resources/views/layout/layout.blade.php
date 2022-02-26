@@ -8,7 +8,9 @@
 
     <meta name="copyright" content="MACode ID, https://macodeid.com">
 
-    <title>DigiGram - Free Agency Template</title>
+    <title>DigiGram - @yield('title')</title>
+
+    <meta name="name" content="@yield('ceo_name')">
 
     <link rel="stylesheet" href="{{asset('vendor/animate/animate.css')}}">
 

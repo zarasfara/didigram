@@ -2227,3 +2227,10 @@ a.text-dark:hover, a.text-dark:focus {
 .owl-carousel button.owl-dot.active {
   background-color: #6C55F9;
 }
+.breadcrumb {
+    margin-top: 100px;
+}
+
+.custom-class-name > a{
+    color: red !important;
+}

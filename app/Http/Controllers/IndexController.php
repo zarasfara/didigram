@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Index\ReviewRequest;
 use App\Models\HomeBanner;
-use App\Models\Post;
-use App\Models\Product;
-use App\Models\Review;
-use Illuminate\Http\Request;
 use App\Models\HomeTitle;
-use Illuminate\Http\UploadedFile;
+use App\Models\Post;
+use App\Models\Review;
+use Carbon\Carbon;
 
 class IndexController extends Controller
 {
@@ -17,7 +16,8 @@ class IndexController extends Controller
 
         $homeTitle = HomeTitle::first();
 
-        $homeBanner = HomeBanner::where('status', '=', 'show')->get();
+        $homeBanner = HomeBanner::where('status', '=', 'show')
+            ->get();
 
         return view('pages.index', compact('homeTitle', 'homeBanner'));
 
@@ -30,31 +30,20 @@ class IndexController extends Controller
 
     public function blog()
     {
-
         $posts = Post::all();
         return view('pages.blog', compact('posts'));
     }
 
     public function news($slug)
     {
-
         $article = Post::where('slug', [$slug])->first();
-
-        return view('pages.blog-single', compact('slug', 'article'));
+        $date = Carbon::parse($article->created_at);
+        return view('pages.blog-single', compact('slug', 'article','date'));
     }
 
-    public function reviewUpload(Request $request)
+    public function reviewUpload(ReviewRequest $request)
     {
-        $request->validate([
-
-           'name' =>'required',
-
-           'email' => 'required|email',
-
-           'message' =>'required',
-
-           'file' => 'required|file|image|mimes:jpg,jpeg,png,bmp|max:2000'
-        ]);
+        $request->validated();
 
         $path = $request->file('file')->store('/reviews', 'public');
 
