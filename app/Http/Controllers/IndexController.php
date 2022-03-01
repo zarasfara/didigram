@@ -6,7 +6,9 @@ use App\Http\Requests\Index\ReviewRequest;
 use App\Models\HomeBanner;
 use App\Models\HomeTitle;
 use App\Models\Post;
+use App\Models\PostTag;
 use App\Models\Review;
+use App\Models\Tag;
 use Carbon\Carbon;
 
 class IndexController extends Controller
@@ -37,8 +39,14 @@ class IndexController extends Controller
     public function news($slug)
     {
         $article = Post::where('slug', [$slug])->first();
+
         $date = Carbon::parse($article->created_at);
-        return view('pages.blog-single', compact('slug', 'article','date'));
+
+        $allTags = Tag::all();
+
+        $tagsForPost = $article->tags()->get();
+
+        return view('pages.blog_single', compact('slug', 'article','date','allTags','tagsForPost'));
     }
 
     public function reviewUpload(ReviewRequest $request)
