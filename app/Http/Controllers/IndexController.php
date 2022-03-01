@@ -46,6 +46,8 @@ class IndexController extends Controller
 
         $tagsForPost = $article->tags()->get();
 
+//        dd(json_decode($article->images));
+
         return view('pages.blog_single', compact('slug', 'article','date','allTags','tagsForPost'));
     }
 
@@ -59,5 +61,9 @@ class IndexController extends Controller
 
         $params['file'] = $path;
         Review::create($params);
+    }
+
+    public function contact() {
+        return view('pages.contact');
     }
 }

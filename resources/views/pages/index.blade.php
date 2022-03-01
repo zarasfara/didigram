@@ -219,55 +219,6 @@
             </div> <!-- .container -->
         </div> <!-- .page-section -->
 
-        <div class="page-section bg-light">
-            <div class="container">
-
-                <div class="owl-carousel wow fadeInUp" id="testimonials">
-                    <div class="item">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 py-3">
-                                <div class="testi-image">
-                                    <img src="{{asset('img/person/person_1.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6 py-3">
-                                <div class="testi-content">
-                                    <p>Necessitatibus ipsum magni accusantium consequatur delectus a repudiandae nemo
-                                        quisquam dolorum itaque, tenetur, esse optio eveniet beatae explicabo sapiente
-                                        quo.</p>
-                                    <div class="entry-footer">
-                                        <strong>Melvin Platje</strong> &mdash; <span
-                                            class="text-grey">CEO Slurin Group</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 py-3">
-                                <div class="testi-image">
-                                    <img src="{{asset('img/person/person_2.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6 py-3">
-                                <div class="testi-content">
-                                    <p>Repudiandae vero assumenda sequi labore ipsum eos ducimus provident a nam vitae
-                                        et, dolorum temporibus inventore quaerat consectetur quos! Animi, qui
-                                        ratione?</p>
-                                    <div class="entry-footer">
-                                        <strong>George Burke</strong> &mdash; <span class="text-grey">CEO Letro</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div> <!-- .container -->
-        </div> <!-- .page-section -->
-
         <div class="page-section">
             <div class="container">
                 <div class="row align-items-center">

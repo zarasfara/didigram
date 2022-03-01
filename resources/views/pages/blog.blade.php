@@ -36,7 +36,7 @@
               </div>
               <div class="body">
                 <div class="post-title"><a href="{{route('blog')}}/{{$item->slug}}">{{$item->heading}}</a></div>
-                <div class="post-excerpt">{{$item->paragraph}}</div>
+                <div class="post-excerpt">{!! $item->paragraph !!}</div>
               </div>
               <div class="footer">
                 <a href="{{route('blog')}}/{{$item->slug}}">Read More <span class="mai-chevron-forward text-sm"></span></a>
