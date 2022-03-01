@@ -60,13 +60,6 @@
           </div>
           <div class="col-lg-4">
             <div class="widget">
-              <!-- Widget search -->
-              <div class="widget-box">
-                <form action="#" class="search-widget">
-                  <input type="text" class="form-control" placeholder="Enter keyword..">
-                  <button type="submit" class="btn btn-primary btn-block">Search</button>
-                </form>
-              </div>
 
               <!-- Widget Categories -->
               <div class="widget-box">
@@ -82,53 +75,6 @@
                 </ul>
               </div>
 
-              <!-- Widget recent post -->
-              <div class="widget-box">
-                <h4 class="widget-title">Recent Post</h4>
-                <div class="divider"></div>
-
-                <div class="blog-item">
-                    <a class="post-thumb" href="">
-                      <img src="../assets/img/blog/blog-1.jpg" alt="">
-                    </a>
-                    <div class="content">
-                      <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                      <div class="meta">
-                        <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                        <a href="#"><span class="mai-person"></span> Admin</a>
-                        <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="blog-item">
-                    <a class="post-thumb" href="">
-                      <img src="../assets/img/blog/blog-2.jpg" alt="">
-                    </a>
-                    <div class="content">
-                      <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                      <div class="meta">
-                        <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                        <a href="#"><span class="mai-person"></span> Admin</a>
-                        <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="blog-item">
-                    <a class="post-thumb" href="">
-                      <img src="../assets/img/blog/blog-3.jpg" alt="">
-                    </a>
-                    <div class="content">
-                      <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                      <div class="meta">
-                        <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                        <a href="#"><span class="mai-person"></span> Admin</a>
-                        <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                      </div>
-                    </div>
-                </div>
-
               </div>
 
               <!-- Widget Tag Cloud -->
@@ -137,13 +83,12 @@
                 <div class="divider"></div>
 
                 <div class="tag-clouds">
-                  <a href="#" class="tag-cloud-link">Projects</a>
-                  <a href="#" class="tag-cloud-link">Design</a>
-                  <a href="#" class="tag-cloud-link">Travel</a>
-                  <a href="#" class="tag-cloud-link">Brand</a>
-                  <a href="#" class="tag-cloud-link">Trending</a>
-                  <a href="#" class="tag-cloud-link">Knowledge</a>
-                  <a href="#" class="tag-cloud-link">Food</a>
+                    @foreach($allTags as $tag)
+                        @if($tagsForPost->contains($tag))
+                        <li class="tag-cloud-link" style="margin-right: 5px; }}"> {{$tag->title}}</li>
+                        @endif
+                    @endforeach
+
                 </div>
               </div>
 
