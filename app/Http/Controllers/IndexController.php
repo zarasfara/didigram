@@ -39,17 +39,20 @@ class IndexController extends Controller
     public function news($slug)
     {
         $article = Post::where('slug', [$slug])->first();
-        if(!$article) {
-            abort(404);
-        }
         $date = Carbon::parse($article->created_at);
-
         $allTags = Tag::all();
-
         $tagsForPost = $article->tags()->get();
+        if(!$article) abort(404);
+
+        $data = [
+            'article' => $article,
+            'date' => $date,
+            'allTags' => $allTags,
+            'tagsForPost' => $tagsForPost,
+        ];
 
 
-        return view('pages.blog_single', compact('slug', 'article','date','allTags','tagsForPost'));
+        return view('pages.blog_single', ($data));
     }
 
     public function reviewUpload(ReviewRequest $request)

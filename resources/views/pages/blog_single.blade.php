@@ -103,7 +103,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-6 py-3">
                                     <div class="testi-image">
-                                        <img width="90px" src="{{ asset('storage') }}/{{$image}}" class="img-responsive">
+                                        <img src="{{ asset('storage') }}/{{$image}}" class="img-responsive">
                                     </div>
                                 </div>
                                 <div class="col-md-6 py-3">
@@ -124,6 +124,5 @@
                 </div>
             </div> <!-- .container -->
         </div> <!-- .page-section -->
-
     </main>
 @endsection
