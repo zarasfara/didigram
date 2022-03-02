@@ -45,14 +45,13 @@
                                 <div class="post-date">
                   <span class="icon">
                     <span class="mai-time-outline"></span>
-                  </span> <a href="#">{{$date->translatedFormat('F')}} {{$date->day}}
-                                        , {{$date->year}} {{$date->format('H:i')}}</a>
+                  </span> <a href="#">{{$date->day}} {{$date->translatedFormat('F')}}, {{$date->year}}, {{$date->format('H:i')}}</a>
                                 </div>
                                 <div class="post-comment-count ml-2">
                                 </div>
                             </div>
                             <div class="post-content">
-                                <blockquote class="quote">{{$article->paragraph}}
+                                <blockquote class="quote">{!! $article->paragraph !!}
                                     <span class="author">― {{$article->name}}</span></blockquote>
                             </div>
                         </div>
@@ -65,23 +64,23 @@
                         <div class="widget">
 
                             <!-- Widget Categories -->
-                            <div class="widget-box">
-                                <h4 class="widget-title">Category</h4>
-                                <div class="divider"></div>
+{{--                            <div class="widget-box">--}}
+{{--                                <h4 class="widget-title">Category</h4>--}}
+{{--                                <div class="divider"></div>--}}
 
-                                <ul class="categories">
-                                    <li><a href="#">LifeStyle</a></li>
-                                    <li><a href="#">Food</a></li>
-                                    <li><a href="#">Healthy</a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Entertainment</a></li>
-                                </ul>
-                            </div>
+{{--                                <ul class="categories">--}}
+{{--                                    <li><a href="#">LifeStyle</a></li>--}}
+{{--                                    <li><a href="#">Food</a></li>--}}
+{{--                                    <li><a href="#">Healthy</a></li>--}}
+{{--                                    <li><a href="#">Sports</a></li>--}}
+{{--                                    <li><a href="#">Entertainment</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
 
                         </div>
                         <!-- Widget Tag Cloud -->
                         <div class="widget-box">
-                            <h4 class="widget-title">Tag Cloud</h4>
+                            <h4 class="widget-title">Тэги</h4>
                             <div class="divider"></div>
                             <div class="tag-clouds">
                                 @foreach($allTags as $tag)

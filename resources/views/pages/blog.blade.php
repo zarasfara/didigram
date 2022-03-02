@@ -15,14 +15,14 @@
                   <input name="seatch" type="search" class="form-control" id="searchInput" aria-describedby="emailHelp">
               </div>
               <div>
-                  Кол-во записей
+                  Кол-во записей: {{$posts->count()}}
               </div>
           </form>
       </div>
     <div class="page-section">
       <div class="container">
         <div class="row">
-            @foreach($posts as $item)
+            @forelse($posts as $item)
           <div class="col-md-6 col-lg-4 py-3">
             <div class="card-blog">
               <div class="header">
@@ -43,7 +43,9 @@
               </div>
             </div>
           </div>
-            @endforeach
+                @empty
+                    Нет новостей
+            @endforelse
 
           <div class="col-12 mt-5">
             <nav aria-label="Page Navigation">

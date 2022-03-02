@@ -361,15 +361,6 @@ class PostsController extends VoyagerBaseController
 //        Важно
         PostTag::where('post_id',$id)->delete();
 
-//        if ($request->tag) {
-//            foreach ($request->tag as $tag) {
-//                PostTag::create([
-//                    'post_id' => $id,
-//                    'tag_id' => $tag
-//
-//                ]);
-//            }
-//        }
 
         $this->updatePostTags($request, $id);
 
@@ -451,7 +442,7 @@ class PostsController extends VoyagerBaseController
         if (view()->exists("voyager::$slug.edit-add")) {
             $view = "voyager::$slug.edit-add";
         }
-
+        //Важно
         $allTags = Tag::all();
 
         $tagsForPost = collect([]);
@@ -528,7 +519,6 @@ class PostsController extends VoyagerBaseController
         }
         foreach ($ids as $id) {
             $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
-
             // Check permission
             $this->authorize('delete', $data);
 
@@ -536,6 +526,9 @@ class PostsController extends VoyagerBaseController
             if (!($model && in_array(SoftDeletes::class, class_uses_recursive($model)))) {
                 $this->cleanup($dataType, $data);
             }
+
+//            Важно
+            PostTag::where('post_id',$id)->delete();
         }
 
         $displayName = count($ids) > 1 ? $dataType->getTranslatedAttribute('display_name_plural') : $dataType->getTranslatedAttribute('display_name_singular');
@@ -1031,6 +1024,7 @@ class PostsController extends VoyagerBaseController
         return in_array($details->label, app($details->model)->additional_attributes ?? []);
     }
 
+//    Важно
     protected function updatePostTags(Request $request, $id) {
 
         if ($request->tag) {
