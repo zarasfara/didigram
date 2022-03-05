@@ -3,7 +3,8 @@
         <div class="container">
             <a href="#" class="navbar-brand">Digi<span class="text-primary">Gram.</span></a>
 
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -24,7 +25,18 @@
                 </ul>
 
             </div>
+            <form class="d-flex" action="" method="get">
+                @csrf
+                <div class="mb-3">
+                    <label for="searchInput" class="form-label">Поиск</label>
+                    <select class="js-example-basic-single form-control" name="state">
+                        <option value="AL">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+            </form>
         </div>
+        {{setting('site.telephone')}}
     </nav>
 
 </header>

@@ -17,11 +17,18 @@ class IndexController extends Controller
     {
 
         $homeTitle = HomeTitle::first();
+        $latestArticles = Post::latest('created_at')->limit('4')->get();
+        $homeBanner = HomeBanner::where('status', '=', 'show')->get();
+//        $date = Carbon::parse($latestArticles[created_at]);
+//            dd($latestArticles['items']);
 
-        $homeBanner = HomeBanner::where('status', '=', 'show')
-            ->get();
+        $data = [
+            'homeTitle' => $homeTitle,
+            'latestArticles' => $latestArticles,
+            'homeBanner' => $homeBanner
+        ];
 
-        return view('pages.index', compact('homeTitle', 'homeBanner'));
+        return view('pages.index', ($data));
 
     }
 
@@ -36,7 +43,7 @@ class IndexController extends Controller
         return view('pages.blog', compact('posts'));
     }
 
-    public function news($slug)
+    public function article($slug)
     {
         $article = Post::where('slug', [$slug])->first();
         $date = Carbon::parse($article->created_at);

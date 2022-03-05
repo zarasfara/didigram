@@ -1852,16 +1852,6 @@ a.text-dark:focus {
     left: 20px;
 }
 
-.card-blog-row *:first-child .card-blog {
-    background-color: #6C55F9;
-}
-
-.card-blog-row *:first-child .card-blog .post-author,
-.card-blog-row *:first-child .card-blog .post-title a,
-.card-blog-row *:first-child .card-blog .footer a {
-    color: #fff;
-}
-
 .card-blog-row *:first-child .card-blog .post-date {
     color: rgba(255, 255, 255, 0.6);
 }

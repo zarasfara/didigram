@@ -7,18 +7,6 @@
         {{Breadcrumbs::render()}}
     </div>
   <main>
-      <div class="container">
-          <form action="" method="get">
-              @csrf
-              <div class="mb-3">
-                  <label for="searchInput" class="form-label">search</label>
-                  <input name="seatch" type="search" class="form-control" id="searchInput" aria-describedby="emailHelp">
-              </div>
-              <div>
-                  Кол-во записей: {{$posts->count()}}
-              </div>
-          </form>
-      </div>
     <div class="page-section">
       <div class="container">
         <div class="row">
@@ -39,7 +27,7 @@
                 <div class="post-excerpt">{!! $item->paragraph !!}</div>
               </div>
               <div class="footer">
-                <a href="{{route('blog')}}/{{$item->slug}}">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                <a href="{{route('blog',$item->slug}})">Read More <span class="mai-chevron-forward text-sm"></span></a>
               </div>
             </div>
           </div>

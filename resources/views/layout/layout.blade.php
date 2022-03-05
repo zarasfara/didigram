@@ -11,7 +11,7 @@
     <title>DigiGram - @yield('title')</title>
 
     <meta name="name" content="@yield('ceo_name')">
-
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
     <link rel="stylesheet" href="{{asset('vendor/animate/animate.css')}}">
 
     <link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="{{asset('vendor/owl-carousel/css/owl.carousel.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/theme.css')}}">
-
 </head>
 <body>
 

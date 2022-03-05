@@ -19,7 +19,7 @@ Route::get('/',[IndexController::class, 'index'])->name('home');
 
 Route::get('/about',[IndexController::class, 'about'])->name('about');
 
-Route::get('/blog/{slug}',[IndexController::class, 'news'])->name('article');
+Route::get('/blog/{slug}',[IndexController::class, 'article'])->name('article');
 
 Route::get('/blog',[IndexController::class, 'blog'])->name('blog');
 

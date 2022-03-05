@@ -30,6 +30,8 @@ class ReviewRequest extends FormRequest
 
             'message' =>'required',
 
+            'g-recaptcha-response' => 'required|captcha',
+
             'file' => 'required|file|image|mimes:jpg,jpeg,png,bmp|max:2000'
         ];
     }

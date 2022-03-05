@@ -1,11 +1,6 @@
 @extends('layout.layout')
 @section('title', 'Главная')
 @section('content')
-    <div class="container">
-        <div class="custom-class">
-            {{Breadcrumbs::render()}}
-        </div>
-    </div>
     <main>
         <div class="page-banner home-banner">
             <div class="container h-100">
@@ -140,85 +135,6 @@
             </div> <!-- .container -->
         </div> <!-- .page-section -->
 
-        <div class="page-section border-top">
-            <div class="container">
-                <div class="text-center wow fadeInUp">
-                    <h2 class="title-section">Pricing Plan</h2>
-                    <div class="divider mx-auto"></div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
-                        <div class="card-pricing">
-                            <div class="header">
-                                <div class="price-icon"><span class="mai-people"></span></div>
-                                <div class="price-title">Membership</div>
-                            </div>
-                            <div class="body py-3">
-                                <div class="price-tag">
-                                    <span class="currency">$</span>
-                                    <h2 class="display-4">30</h2>
-                                    <span class="period">/monthly</span>
-                                </div>
-                                <div class="price-info">
-                                    <p>Choose the plan that right for you</p>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="#" class="btn btn-outline rounded-pill">Choose Plan</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-auto py-3 wow fadeInUp">
-                        <div class="card-pricing active">
-                            <div class="header">
-                                <div class="price-labled">Best</div>
-                                <div class="price-icon"><span class="mai-business"></span></div>
-                                <div class="price-title">Dedicated</div>
-                            </div>
-                            <div class="body py-3">
-                                <div class="price-tag">
-                                    <span class="currency">$</span>
-                                    <h2 class="display-4">60</h2>
-                                    <span class="period">/monthly</span>
-                                </div>
-                                <div class="price-info">
-                                    <p>Choose the plan that right for you</p>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="#" class="btn btn-outline rounded-pill">Choose Plan</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-auto py-3 wow fadeInRight">
-                        <div class="card-pricing">
-                            <div class="header">
-                                <div class="price-icon"><span class="mai-rocket-outline"></span></div>
-                                <div class="price-title">Private</div>
-                            </div>
-                            <div class="body py-3">
-                                <div class="price-tag">
-                                    <span class="currency">$</span>
-                                    <h2 class="display-4">90</h2>
-                                    <span class="period">/monthly</span>
-                                </div>
-                                <div class="price-info">
-                                    <p>Choose the plan that right for you</p>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="#" class="btn btn-outline rounded-pill">Choose Plan</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div> <!-- .container -->
-        </div> <!-- .page-section -->
-
         <div class="page-section">
             <div class="container">
                 <div class="row align-items-center">
@@ -264,6 +180,8 @@
                                 <textarea name="message" rows="6" class="form-control"
                                           placeholder="Введите сообщение"></textarea>
                             </div>
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
                             <div id="result">
 
                             </div>
@@ -282,93 +200,25 @@
                     <div class="divider mx-auto"></div>
                 </div>
                 <div class="row my-5 card-blog-row">
-                    <div class="col-md-6 col-lg-3 py-3 wow fadeInUp">
-                        <div class="card-blog">
-                            <div class="header">
-                                <div class="entry-footer">
-                                    <div class="post-author">Sam Newman</div>
-                                    <a href="#" class="post-date">23 Apr 2020</a>
-                                </div>
-                            </div>
-                            <div class="body">
-                                <div class="post-title"><a href="blog-single.html">What is Business Management?</a>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="blog-single.html">Read More <span
-                                        class="mai-chevron-forward text-sm"></span></a>
-                            </div>
-                        </div>
-                    </div>
+                    @foreach($latestArticles as $item)
                     <div class="col-md-6 col-lg-3 py-3 wow fadeInUp">
                         <div class="card-blog">
                             <div class="header">
                                 <div class="avatar">
-                                    <img src="{{asset('img/person/person_1.jpg')}}" alt="">
+                                    <img src="{{asset('storage/')}}/{{$item->background}}" alt="">
                                 </div>
                                 <div class="entry-footer">
-                                    <div class="post-author">Sam Newman</div>
-                                    <a href="#" class="post-date">23 Apr 2020</a>
+                                    <div class="post-author">{{$item->name}}</div>
                                 </div>
                             </div>
                             <div class="body">
-                                <div class="post-title"><a href="blog-single.html">What is Business Management?</a>
+                                <div class="post-title"><a href="{{route('blog')}}/{{$item->slug}}">What is Business Management?</a>
                                 </div>
-                                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="blog-single.html">Read More <span
-                                        class="mai-chevron-forward text-sm"></span></a>
+                                <div class="post-excerpt">{{  \Illuminate\Support\Str::limit($item->paragraph,40,'...')  }}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 py-3 wow fadeInUp">
-                        <div class="card-blog">
-                            <div class="header">
-                                <div class="avatar">
-                                    <img src="{{asset('img/person/person_2.jpg')}}" alt="">
-                                </div>
-                                <div class="entry-footer">
-                                    <div class="post-author">Sam Newman</div>
-                                    <a href="#" class="post-date">23 Apr 2020</a>
-                                </div>
-                            </div>
-                            <div class="body">
-                                <div class="post-title"><a href="blog-single.html">What is Business Management?</a>
-                                </div>
-                                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="blog-single.html">Read More <span
-                                        class="mai-chevron-forward text-sm"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 py-3 wow fadeInUp">
-                        <div class="card-blog">
-                            <div class="header">
-                                <div class="avatar">
-                                    <img src="{{asset('img/person/person_3.jpg')}}" alt="">
-                                </div>
-                                <div class="entry-footer">
-                                    <div class="post-author">Sam Newman</div>
-                                    <a href="#" class="post-date">23 Apr 2020</a>
-                                </div>
-                            </div>
-                            <div class="body">
-                                <div class="post-title"><a href="blog-single.html">What is Business Management?</a>
-                                </div>
-                                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <a href="blog-single.html">Read More <span
-                                        class="mai-chevron-forward text-sm"></span></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <div class="text-center">

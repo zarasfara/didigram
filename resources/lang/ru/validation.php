@@ -126,6 +126,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'g-recaptcha-response' => [
+            'required' => 'Пожалуйста подвердите что вы не робот.',
+            'captcha' => 'Captcha error! try again later or contact site admin.',
+        ],
     ],
     'attributes'           => [
         'address'               => 'Адрес',
@@ -159,5 +163,6 @@ return [
         'title'                 => 'Наименование',
         'username'              => 'Никнейм',
         'year'                  => 'Год',
+        'g-recaptcha-response'  => 'Капча'
     ],
 ];

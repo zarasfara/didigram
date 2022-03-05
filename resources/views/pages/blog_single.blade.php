@@ -36,6 +36,17 @@
                                                 class="mai-logo-twitter"></span></a>
                                         <a href="#" class="btn social-linkedin"><span class="mai-logo-linkedin"></span></a>
                                         <a href="#" class="btn"><span class="mai-mail"></span></a>
+                                        <script type="text/javascript">
+                                            document.write(VK.Share.button({
+                                                    title: `{{$article->name}}`,
+                                                    image: `https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png`,
+                                                },
+                                                {
+                                                    type: "custom",
+                                                    text: `<a href="#" class="btn"><img width='25px' src="{{asset('img/vk.svg')}}"></a>`
+                                                }
+                                            ));
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +56,8 @@
                                 <div class="post-date">
                   <span class="icon">
                     <span class="mai-time-outline"></span>
-                  </span> <a href="#">{{$date->day}} {{$date->translatedFormat('F')}}, {{$date->year}}, {{$date->format('H:i')}}</a>
+                  </span> <a href="#">{{$date->day}} {{$date->translatedFormat('F')}}, {{$date->year}}
+                                        , {{$date->format('H:i')}}</a>
                                 </div>
                                 <div class="post-comment-count ml-2">
                                 </div>
@@ -61,27 +73,10 @@
 
                     </div>
                     <div class="col-lg-4">
-                        <div class="widget">
-
-                            <!-- Widget Categories -->
-{{--                            <div class="widget-box">--}}
-{{--                                <h4 class="widget-title">Category</h4>--}}
-{{--                                <div class="divider"></div>--}}
-
-{{--                                <ul class="categories">--}}
-{{--                                    <li><a href="#">LifeStyle</a></li>--}}
-{{--                                    <li><a href="#">Food</a></li>--}}
-{{--                                    <li><a href="#">Healthy</a></li>--}}
-{{--                                    <li><a href="#">Sports</a></li>--}}
-{{--                                    <li><a href="#">Entertainment</a></li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-
-                        </div>
                         <!-- Widget Tag Cloud -->
                         <div class="widget-box">
                             <h4 class="widget-title">Тэги</h4>
-                            <div class="divider"></div>
+
                             <div class="tag-clouds">
                                 @foreach($allTags as $tag)
                                     @if($tagsForPost->contains($tag))
@@ -96,7 +91,6 @@
         </div>
         <div class="page-section bg-light">
             <div class="container">
-
                 <div class="owl-carousel wow fadeInUp" id="testimonials">
                     @foreach(json_decode($article->images) as $image)
                         <div class="item">
@@ -108,8 +102,10 @@
                                 </div>
                                 <div class="col-md-6 py-3">
                                     <div class="testi-content">
-                                        <p>Necessitatibus ipsum magni accusantium consequatur delectus a repudiandae nemo
-                                            quisquam dolorum itaque, tenetur, esse optio eveniet beatae explicabo sapiente
+                                        <p>Necessitatibus ipsum magni accusantium consequatur delectus a repudiandae
+                                            nemo
+                                            quisquam dolorum itaque, tenetur, esse optio eveniet beatae explicabo
+                                            sapiente
                                             quo.</p>
                                         <div class="entry-footer">
                                             <strong>Melvin Platje</strong> &mdash; <span
@@ -120,7 +116,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div> <!-- .container -->
         </div> <!-- .page-section -->
