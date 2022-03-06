@@ -354,7 +354,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        // Новое Посты
+        // POSTS
         $dataRow = $this->dataRow($postsDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -463,7 +463,7 @@ class DataRowsTableSeeder extends Seeder
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 0,
-                'add'          => 0,
+                'add'          => 1,
                 'delete'       => 0,
                 'order'        => 9,
                 'details'      => [
