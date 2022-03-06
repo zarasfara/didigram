@@ -374,7 +374,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.name'),
+                'display_name' => __('Имя'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -388,7 +388,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.heading'),
+                'display_name' => __('Заголовок'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -402,7 +402,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'rich_text_box',
-                'display_name' => __('voyager::seeders.data_rows.paragraph'),
+                'display_name' => __('Текст'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -416,7 +416,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.seo_name'),
+                'display_name' => __('Сео название'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -430,7 +430,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'image',
-                'display_name' => __('voyager::seeders.data_rows.background'),
+                'display_name' => __('Задний фон'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -444,7 +444,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'multiple_images',
-                'display_name' => __('voyager::seeders.data_rows.images'),
+                'display_name' => __('Фотографии'),
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -454,18 +454,38 @@ class DataRowsTableSeeder extends Seeder
                 'order'        => 7,
             ])->save();
         }
-        $dataRow = $this->dataRow($postsDataType, 'created_at');
+        $dataRow = $this->dataRow($postsDataType, 'slug');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => __('voyager::seeders.data_rows.created_at'),
+                'type'         => 'hidden',
+                'display_name' => __('Ссылка'),
                 'required'     => 0,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 8,
+                'order'        => 9,
+                'details'      => [
+                    'slugify' => [
+                        'origin'=> "heading",
+                        'forceUpdate'=> true
+                    ]
+                ]
+            ])->save();
+        }
+        $dataRow = $this->dataRow($postsDataType, 'created_at');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'timestamp',
+                'display_name' => __('Создано'),
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'order'        => 9,
             ])->save();
         }
 
@@ -473,14 +493,14 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'timestamp',
-                'display_name' => __('voyager::seeders.data_rows.updated_at'),
+                'display_name' => __('Обновлено'),
                 'required'     => 0,
                 'browse'       => 0,
                 'read'         => 0,
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 9,
+                'order'        => 10,
             ])->save();
         }
     }
