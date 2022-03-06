@@ -27,7 +27,7 @@
                 <div class="post-excerpt">{!! $item->paragraph !!}</div>
               </div>
               <div class="footer">
-                <a href="{{route('blog',$item->slug}})">Read More <span class="mai-chevron-forward text-sm"></span></a>
+                <a href="{{route('blog',$item->slug)}}">Read More <span class="mai-chevron-forward text-sm"></span></a>
               </div>
             </div>
           </div>
