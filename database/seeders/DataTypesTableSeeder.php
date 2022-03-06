@@ -61,9 +61,9 @@ class DataTypesTableSeeder extends Seeder
                 'display_name_singular' => __('voyager::seeders.data_types.user.singular'),
                 'display_name_plural'   => __('voyager::seeders.data_types.user.plural'),
                 'icon'                  => 'voyager-news',
-                'model_name'            => 'App\\Http\\Models\\Post',
+                'model_name'            => 'App\\Models\\Post',
                 'policy_name'           => '',
-                'controller'            => 'APP\\Http\\Controllers\\Voyager\\PostsController',
+                'controller'            => 'App\\Http\\Controllers\\Voyager\\PostsController',
                 'generate_permissions'  => 1,
                 'description'           => '',
             ])->save();
